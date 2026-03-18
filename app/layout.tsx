@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css"; // Imports your Tailwind CSS
 
 export const metadata: Metadata = {
-  title: "Athene AI | Enterprise Multi Agent Orchestration",
+  // THIS FIXES THE WARNING:
+  metadataBase: new URL("https://www.atheneai.co"),
+  title: "Athene AI",
   description: "The AI intelligence layer for business data. Connect your enterprise stack in minutes with zero data migration and granular role based access control.",
   keywords: [
     "Enterprise AI",
@@ -15,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Athene AI | Where your data becomes your intelligence.",
     description: "Deploy supervised agents across your entire stack in 60 seconds. Zero data migration required.",
-    url: "https://www.atheneai.com",
+    url: "https://www.atheneai.co",
     siteName: "Athene AI",
     images: [
       {
