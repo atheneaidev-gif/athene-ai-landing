@@ -55,16 +55,20 @@ export default function LandingPage() {
         // Optimistically update the count for the user immediately
         setWaitlistCount(prev => prev + 1);
 
+        // Keep the success message open for 3 seconds before closing
         setTimeout(() => {
           setIsWaitlistOpen(false);
           setIsSuccess(false);
           setFormData({ name: "", email: "", phone: "", company: "", designation: "" });
-        }, 2000);
+        }, 3000);
       } else {
-        console.error("Submission failed");
+        const errorData = await response.json();
+        console.error("Submission failed:", errorData.error);
+        alert(errorData.error || "Failed to join waitlist. Please try again.");
       }
     } catch (error) {
       console.error("Failed to submit:", error);
+      alert("A network error occurred. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -92,7 +96,6 @@ export default function LandingPage() {
       {/* --- 1. GLOBAL NAVIGATION --- */}
       <nav className="fixed top-0 w-full z-50 bg-white/60 backdrop-blur-xl border-b border-white/50 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-
           {/* Brand Logo */}
           <div className="flex items-center">
             <Image
@@ -136,7 +139,6 @@ export default function LandingPage() {
       {/* --- 2. HERO SECTION --- */}
       <section className="pt-32 pb-20 px-6 relative z-10">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 pt-10">
-
           <div className="flex-1 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 backdrop-blur-sm border border-white/60 text-sky-600 text-sm font-bold mb-8 shadow-sm">
               <span className="flex h-2 w-2 rounded-full bg-sky-500 animate-pulse"></span>
@@ -325,7 +327,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* --- 8. THE GLASSMORPHISM FOOTER --- */}
+      {/* --- 8. FOOTER --- */}
       <footer className="bg-white/50 backdrop-blur-2xl pt-20 pb-10 px-6 text-center border-t border-white shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.05)]">
         <div className="max-w-3xl mx-auto mb-16 relative z-10">
           <h2 className="text-4xl font-extrabold text-blue-950 mb-8">Ready to build your intelligence layer?</h2>
@@ -347,9 +349,7 @@ export default function LandingPage() {
           </div>
         </div>
 
-        {/* 3-Column Grid for Logo, Copyright, and Links */}
         <div className="border-t border-blue-900/10 pt-10 grid grid-cols-1 md:grid-cols-3 gap-6 items-center max-w-7xl mx-auto text-blue-950/70 text-sm font-medium relative z-10">
-
           <div className="flex justify-center md:justify-start">
             <Image
               src="/athene-logo.png"

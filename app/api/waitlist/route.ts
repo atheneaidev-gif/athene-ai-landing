@@ -1,17 +1,23 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
-// Force Next.js to NEVER cache this route so the count is always live
 export const dynamic = 'force-dynamic';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const supabase = createClient(supabaseUrl, supabaseKey);
+// Helper function to create a fresh admin client per request
+const getSupabaseAdmin = () => {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-// --- FETCH THE COUNT SECURELY ---
+    if (!supabaseUrl || !supabaseKey) {
+        throw new Error("Missing Supabase configuration. Check your environment variables.");
+    }
+
+    return createClient(supabaseUrl, supabaseKey);
+};
+
 export async function GET() {
     try {
-        // Call our secure custom database function
+        const supabase = getSupabaseAdmin();
         const { data: count, error } = await supabase.rpc('get_waitlist_count');
 
         if (error) throw error;
@@ -23,9 +29,9 @@ export async function GET() {
     }
 }
 
-// --- HANDLE NEW SIGNUPS ---
 export async function POST(req: Request) {
     try {
+        const supabase = getSupabaseAdmin();
         const body = await req.json();
         const { name, email, company, designation, phone } = body;
 
