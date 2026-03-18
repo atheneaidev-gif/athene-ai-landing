@@ -188,7 +188,7 @@ export default function LandingPage() {
               </div>
               <div className="p-6 space-y-4 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-opacity-5">
                 <div className="bg-blue-950 text-white px-4 py-3 rounded-2xl rounded-tr-sm text-sm font-medium w-fit ml-auto shadow-sm">
-                  Give me a brief on the Acme Corp deal.
+                  Give me a brief on the Athene deal.
                 </div>
                 <div className="flex gap-3">
                   <div className="w-8 h-8 rounded-full bg-gradient-to-br from-sky-400 to-rose-400 flex items-center justify-center shrink-0 shadow-sm">
