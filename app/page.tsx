@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 
 // --- CONFIGURATION ---
-const CALENDLY_LINK = "https://calendly.com/sakshamsharma614/30min";
+const CALENDLY_LINK = "https://calendly.com/saksham-atheneai/30min";
 
 export default function LandingPage() {
   // --- STATE MANAGEMENT ---
@@ -113,6 +113,7 @@ export default function LandingPage() {
             <a href="#platform" className="hover:text-blue-950 transition-colors">Platform</a>
             <a href="#architecture" className="hover:text-blue-950 transition-colors">Architecture</a>
             <a href="#governance" className="hover:text-blue-950 transition-colors">Governance</a>
+            <a href="#internships" className="hover:text-blue-950 transition-colors">Career</a>
             <a href="#faq" className="hover:text-blue-950 transition-colors">FAQ</a>
           </div>
 
@@ -302,7 +303,28 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* --- 7. FAQ --- */}
+      {/* --- 7. SUMMER INTERNSHIP --- */}
+      <section id="internships" className="py-24 px-6 relative">
+        <div className="max-w-4xl mx-auto bg-white/80 backdrop-blur-xl border-2 border-sky-200 rounded-3xl p-8 md:p-12 text-center shadow-xl shadow-sky-900/5">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-sky-100 text-sky-600 rounded-2xl mb-6 shadow-sm">
+            <Briefcase className="w-8 h-8" />
+          </div>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-blue-950 mb-4">Summer Internship 2026</h2>
+          <p className="text-lg text-blue-950/80 mb-8 max-w-2xl mx-auto font-medium">
+            Summer internships are now open for 2nd and 3rd-year undergrads. Join our engineering team to be part of an exciting summer building real AI products.
+          </p>
+          <a
+            href="https://binary.so/j8yHCeu"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-blue-950 hover:bg-blue-900 text-white rounded-xl font-bold transition-all shadow-lg shadow-blue-900/20"
+          >
+            Apply Now <ArrowRight className="w-5 h-5" />
+          </a>
+        </div>
+      </section>
+
+      {/* --- 8. FAQ --- */}
       <section id="faq" className="py-24 px-6 bg-white/40 backdrop-blur-sm border-y border-white">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-extrabold text-blue-950 mb-10 text-center">Frequently Asked Questions</h2>
@@ -327,7 +349,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* --- 8. FOOTER --- */}
+      {/* --- 9. FOOTER --- */}
       <footer className="bg-white/50 backdrop-blur-2xl pt-20 pb-10 px-6 text-center border-t border-white shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.05)]">
         <div className="max-w-3xl mx-auto mb-16 relative z-10">
           <h2 className="text-4xl font-extrabold text-blue-950 mb-8">Ready to build your intelligence layer?</h2>
