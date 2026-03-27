@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import {
   ArrowRight, X, CheckCircle2, Calendar, Building2, User, Mail, Phone, Briefcase,
-  Database, Cloud, Box, Network, ShieldCheck, Zap, ChevronDown, ChevronUp, Linkedin
+  Database, Cloud, Box, Network, ShieldCheck, Zap, ChevronDown, ChevronUp, Linkedin, Code, Target, Megaphone
 } from "lucide-react";
 
 // --- CONFIGURATION ---
@@ -16,6 +16,9 @@ export default function LandingPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  // NEW: Internship Modal State
+  const [isInternshipModalOpen, setIsInternshipModalOpen] = useState(false);
 
   // --- DYNAMIC WAITLIST COUNT ---
   const [waitlistCount, setWaitlistCount] = useState<number>(0);
@@ -311,16 +314,14 @@ export default function LandingPage() {
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-blue-950 mb-4">Summer Internship 2026</h2>
           <p className="text-lg text-blue-950/80 mb-8 max-w-2xl mx-auto font-medium">
-            Summer internships are now open for 2nd and 3rd-year undergrads. Join our engineering team to be part of an exciting summer building real AI products.
+            Summer internships are now open for 2nd and 3rd-year undergrads. Join our team to be part of an exciting summer building and scaling real AI products.
           </p>
-          <a
-            href="https://binary.so/j8yHCeu"
-            target="_blank"
-            rel="noreferrer"
+          <button
+            onClick={() => setIsInternshipModalOpen(true)}
             className="inline-flex items-center gap-2 px-8 py-3.5 bg-blue-950 hover:bg-blue-900 text-white rounded-xl font-bold transition-all shadow-lg shadow-blue-900/20"
           >
             Apply Now <ArrowRight className="w-5 h-5" />
-          </a>
+          </button>
         </div>
       </section>
 
@@ -465,6 +466,64 @@ export default function LandingPage() {
                   <p className="text-blue-950/70 font-medium text-sm max-w-xs">Thank you, {formData.name.split(' ')[0]}. We have secured your spot and will be in touch shortly.</p>
                 </div>
               )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* --- INTERNSHIP MODAL --- */}
+      {isInternshipModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+          <div className="absolute inset-0 bg-blue-950/40 backdrop-blur-sm" onClick={() => setIsInternshipModalOpen(false)}></div>
+          <div className="relative bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white w-full max-w-md overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-blue-900/10 bg-sky-50/50">
+              <h3 className="text-lg font-extrabold text-blue-950">Select a Role</h3>
+              <button onClick={() => setIsInternshipModalOpen(false)} className="text-blue-950/40 hover:text-blue-950 transition-colors p-1">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="p-6 space-y-4">
+              {/* Full Stack Link */}
+              <a href="https://binary.so/j8yHCeu" target="_blank" rel="noreferrer" className="flex items-center justify-between p-4 rounded-xl border border-blue-900/10 hover:border-sky-300 hover:bg-sky-50 transition-all group">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-sky-100 text-sky-600 flex items-center justify-center">
+                    <Code className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-blue-950 group-hover:text-sky-700 transition-colors">Full Stack Developer</h4>
+                    <p className="text-xs font-medium text-blue-950/60">Engineering</p>
+                  </div>
+                </div>
+                <ArrowRight className="w-4 h-4 text-blue-950/30 group-hover:text-sky-500 transition-colors" />
+              </a>
+
+              {/* Sales Link */}
+              <a href="https://binary.so/LD3InHL" target="_blank" rel="noreferrer" className="flex items-center justify-between p-4 rounded-xl border border-blue-900/10 hover:border-sky-300 hover:bg-sky-50 transition-all group">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center">
+                    <Target className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-blue-950 group-hover:text-sky-700 transition-colors">Sales</h4>
+                    <p className="text-xs font-medium text-blue-950/60">Growth & Enterprise</p>
+                  </div>
+                </div>
+                <ArrowRight className="w-4 h-4 text-blue-950/30 group-hover:text-sky-500 transition-colors" />
+              </a>
+
+              {/* Marketing Link */}
+              <a href="https://binary.so/ZJa781D" target="_blank" rel="noreferrer" className="flex items-center justify-between p-4 rounded-xl border border-blue-900/10 hover:border-sky-300 hover:bg-sky-50 transition-all group">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-rose-100 text-rose-500 flex items-center justify-center">
+                    <Megaphone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-blue-950 group-hover:text-sky-700 transition-colors">Marketing</h4>
+                    <p className="text-xs font-medium text-blue-950/60">Brand & Operations</p>
+                  </div>
+                </div>
+                <ArrowRight className="w-4 h-4 text-blue-950/30 group-hover:text-sky-500 transition-colors" />
+              </a>
             </div>
           </div>
         </div>
