@@ -4,7 +4,9 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import {
   ArrowRight, X, CheckCircle2, Calendar, Building2, User, Mail, Phone, Briefcase,
-  Database, Cloud, Box, Network, ShieldCheck, Zap, ChevronDown, ChevronUp, Linkedin, Code, Target, Megaphone
+  Database, Cloud, Box, Network, ShieldCheck, Zap, ChevronDown, ChevronUp, Linkedin, Code, Target, Megaphone,
+  GitBranch, MessageCircle, MessageSquare, FileText, HardDrive, Layers, BookOpen,
+  Bell, Activity, DollarSign, CreditCard, Users, BarChart3, TrendingUp, Table2
 } from "lucide-react";
 import Navbar from "./components/Navbar";
 
@@ -175,18 +177,66 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* --- 3. SOCIAL PROOF --- */}
-      <section className="py-10 bg-white/40 border-y border-white backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-xs font-bold tracking-widest text-blue-950/40 uppercase mb-6">Integrates directly with your existing enterprise stack</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale mix-blend-multiply">
-            <div className="flex items-center gap-2 font-bold text-xl text-blue-950"><Cloud className="w-6 h-6" /> Salesforce</div>
-            <div className="flex items-center gap-2 font-bold text-xl text-blue-950"><Database className="w-6 h-6" /> Snowflake</div>
-            <div className="flex items-center gap-2 font-bold text-xl text-blue-950"><Network className="w-6 h-6" /> GitHub</div>
-            <div className="flex items-center gap-2 font-bold text-xl text-blue-950"><Box className="w-6 h-6" /> Zendesk</div>
+      {/* --- 3. INTEGRATIONS CAROUSEL --- */}
+      {(() => {
+        const integrations = [
+          { name: "Salesforce",    icon: <Cloud className="w-4 h-4" />,          color: "text-sky-500" },
+          { name: "HubSpot",       icon: <Target className="w-4 h-4" />,          color: "text-orange-500" },
+          { name: "Snowflake",     icon: <Database className="w-4 h-4" />,        color: "text-blue-500" },
+          { name: "GitHub",        icon: <GitBranch className="w-4 h-4" />,       color: "text-gray-700" },
+          { name: "GitLab",        icon: <GitBranch className="w-4 h-4" />,       color: "text-orange-600" },
+          { name: "Zendesk",       icon: <MessageCircle className="w-4 h-4" />,   color: "text-green-600" },
+          { name: "Slack",         icon: <MessageSquare className="w-4 h-4" />,   color: "text-purple-500" },
+          { name: "Notion",        icon: <FileText className="w-4 h-4" />,        color: "text-gray-800" },
+          { name: "Google Drive",  icon: <HardDrive className="w-4 h-4" />,       color: "text-yellow-500" },
+          { name: "Google Sheets", icon: <Table2 className="w-4 h-4" />,          color: "text-emerald-600" },
+          { name: "Linear",        icon: <Layers className="w-4 h-4" />,          color: "text-violet-600" },
+          { name: "Jira",          icon: <BookOpen className="w-4 h-4" />,        color: "text-blue-600" },
+          { name: "Confluence",    icon: <BookOpen className="w-4 h-4" />,        color: "text-blue-400" },
+          { name: "PagerDuty",     icon: <Bell className="w-4 h-4" />,            color: "text-green-500" },
+          { name: "Datadog",       icon: <Activity className="w-4 h-4" />,        color: "text-purple-600" },
+          { name: "Intercom",      icon: <MessageCircle className="w-4 h-4" />,   color: "text-blue-500" },
+          { name: "QuickBooks",    icon: <DollarSign className="w-4 h-4" />,      color: "text-green-600" },
+          { name: "Stripe",        icon: <CreditCard className="w-4 h-4" />,      color: "text-indigo-500" },
+          { name: "Workday",       icon: <Users className="w-4 h-4" />,           color: "text-orange-500" },
+          { name: "Looker",        icon: <BarChart3 className="w-4 h-4" />,       color: "text-blue-600" },
+          { name: "Tableau",       icon: <BarChart3 className="w-4 h-4" />,       color: "text-sky-600" },
+          { name: "Mixpanel",      icon: <TrendingUp className="w-4 h-4" />,      color: "text-rose-500" },
+          { name: "Amplitude",     icon: <Activity className="w-4 h-4" />,        color: "text-blue-700" },
+          { name: "Outreach",      icon: <Mail className="w-4 h-4" />,            color: "text-orange-500" },
+          { name: "Gong",          icon: <Network className="w-4 h-4" />,         color: "text-purple-500" },
+          { name: "Marketo",       icon: <Megaphone className="w-4 h-4" />,       color: "text-violet-500" },
+        ];
+
+        const Card = ({ name, icon, color }: { name: string; icon: React.ReactNode; color: string }) => (
+          <div className="flex items-center gap-2.5 px-5 py-2.5 bg-white/80 backdrop-blur-sm border border-white/80 rounded-xl shadow-sm text-sm font-bold text-blue-950 whitespace-nowrap mx-2.5 select-none">
+            <span className={color}>{icon}</span>
+            {name}
           </div>
-        </div>
-      </section>
+        );
+
+        return (
+          <section className="py-12 bg-white/40 border-y border-white backdrop-blur-sm overflow-hidden">
+            <p className="text-xs font-bold tracking-widest text-blue-950/40 uppercase text-center mb-8">
+              Integrates directly with your existing enterprise stack
+            </p>
+            {/* Fade masks on left and right edges */}
+            <div className="relative">
+              <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+                style={{ background: "linear-gradient(to right, rgba(240,249,255,0.9), transparent)" }} />
+              <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+                style={{ background: "linear-gradient(to left, rgba(240,249,255,0.9), transparent)" }} />
+
+              {/* Scrolling track — list duplicated for seamless loop */}
+              <div className="flex animate-marquee w-max">
+                {[...integrations, ...integrations].map((item, i) => (
+                  <Card key={i} {...item} />
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* --- 4. PROBLEM STATEMENT --- */}
       <section id="platform" className="py-24 px-6 relative">
