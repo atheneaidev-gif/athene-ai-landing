@@ -6,7 +6,8 @@ import {
   ArrowRight, X, CheckCircle2, Calendar, Building2, User, Mail, Phone, Briefcase,
   Database, Cloud, Box, Network, ShieldCheck, Zap, ChevronDown, ChevronUp, Linkedin, Code, Target, Megaphone,
   GitBranch, MessageCircle, MessageSquare, FileText, HardDrive, Layers, BookOpen,
-  Bell, Activity, DollarSign, CreditCard, Users, BarChart3, TrendingUp, Table2
+  Bell, Activity, DollarSign, CreditCard, Users, BarChart3, TrendingUp, Table2,
+  Share2, LayoutGrid
 } from "lucide-react";
 import Navbar from "./components/Navbar";
 
@@ -180,32 +181,22 @@ export default function LandingPage() {
       {/* --- 3. INTEGRATIONS CAROUSEL --- */}
       {(() => {
         const integrations = [
-          { name: "Salesforce",    icon: <Cloud className="w-4 h-4" />,          color: "text-sky-500" },
-          { name: "HubSpot",       icon: <Target className="w-4 h-4" />,          color: "text-orange-500" },
-          { name: "Snowflake",     icon: <Database className="w-4 h-4" />,        color: "text-blue-500" },
-          { name: "GitHub",        icon: <GitBranch className="w-4 h-4" />,       color: "text-gray-700" },
-          { name: "GitLab",        icon: <GitBranch className="w-4 h-4" />,       color: "text-orange-600" },
-          { name: "Zendesk",       icon: <MessageCircle className="w-4 h-4" />,   color: "text-green-600" },
-          { name: "Slack",         icon: <MessageSquare className="w-4 h-4" />,   color: "text-purple-500" },
-          { name: "Notion",        icon: <FileText className="w-4 h-4" />,        color: "text-gray-800" },
-          { name: "Google Drive",  icon: <HardDrive className="w-4 h-4" />,       color: "text-yellow-500" },
-          { name: "Google Sheets", icon: <Table2 className="w-4 h-4" />,          color: "text-emerald-600" },
-          { name: "Linear",        icon: <Layers className="w-4 h-4" />,          color: "text-violet-600" },
-          { name: "Jira",          icon: <BookOpen className="w-4 h-4" />,        color: "text-blue-600" },
-          { name: "Confluence",    icon: <BookOpen className="w-4 h-4" />,        color: "text-blue-400" },
-          { name: "PagerDuty",     icon: <Bell className="w-4 h-4" />,            color: "text-green-500" },
-          { name: "Datadog",       icon: <Activity className="w-4 h-4" />,        color: "text-purple-600" },
-          { name: "Intercom",      icon: <MessageCircle className="w-4 h-4" />,   color: "text-blue-500" },
-          { name: "QuickBooks",    icon: <DollarSign className="w-4 h-4" />,      color: "text-green-600" },
-          { name: "Stripe",        icon: <CreditCard className="w-4 h-4" />,      color: "text-indigo-500" },
-          { name: "Workday",       icon: <Users className="w-4 h-4" />,           color: "text-orange-500" },
-          { name: "Looker",        icon: <BarChart3 className="w-4 h-4" />,       color: "text-blue-600" },
-          { name: "Tableau",       icon: <BarChart3 className="w-4 h-4" />,       color: "text-sky-600" },
-          { name: "Mixpanel",      icon: <TrendingUp className="w-4 h-4" />,      color: "text-rose-500" },
-          { name: "Amplitude",     icon: <Activity className="w-4 h-4" />,        color: "text-blue-700" },
-          { name: "Outreach",      icon: <Mail className="w-4 h-4" />,            color: "text-orange-500" },
-          { name: "Gong",          icon: <Network className="w-4 h-4" />,         color: "text-purple-500" },
-          { name: "Marketo",       icon: <Megaphone className="w-4 h-4" />,       color: "text-violet-500" },
+          { name: "Snowflake",        icon: <Database className="w-4 h-4" />,       color: "text-sky-500"     },
+          { name: "Salesforce",       icon: <Cloud className="w-4 h-4" />,          color: "text-blue-600"    },
+          { name: "HubSpot",          icon: <Target className="w-4 h-4" />,         color: "text-orange-500"  },
+          { name: "GitHub",           icon: <GitBranch className="w-4 h-4" />,      color: "text-gray-700"    },
+          { name: "Slack",            icon: <MessageSquare className="w-4 h-4" />,  color: "text-purple-500"  },
+          { name: "Jira",             icon: <BookOpen className="w-4 h-4" />,       color: "text-blue-500"    },
+          { name: "Linear",           icon: <Layers className="w-4 h-4" />,         color: "text-violet-600"  },
+          { name: "Notion",           icon: <FileText className="w-4 h-4" />,       color: "text-gray-700"    },
+          { name: "Google Drive",     icon: <HardDrive className="w-4 h-4" />,      color: "text-yellow-500"  },
+          { name: "Google Docs",      icon: <FileText className="w-4 h-4" />,       color: "text-blue-400"    },
+          { name: "Google Sheets",    icon: <Table2 className="w-4 h-4" />,         color: "text-emerald-500" },
+          { name: "Gmail",            icon: <Mail className="w-4 h-4" />,           color: "text-red-500"     },
+          { name: "Google Calendar",  icon: <Calendar className="w-4 h-4" />,       color: "text-blue-500"    },
+          { name: "Zendesk",          icon: <MessageCircle className="w-4 h-4" />,  color: "text-green-600"   },
+          { name: "Microsoft 365",    icon: <LayoutGrid className="w-4 h-4" />,     color: "text-orange-500"  },
+          { name: "SharePoint",       icon: <Share2 className="w-4 h-4" />,         color: "text-blue-700"    },
         ];
 
         const Card = ({ name, icon, color }: { name: string; icon: React.ReactNode; color: string }) => (
