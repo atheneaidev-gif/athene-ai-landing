@@ -58,6 +58,11 @@ export const metadata: Metadata = {
     "GitHub AI assistant",
     "Google Drive AI",
     "HubSpot AI",
+    "enterprise AI India",
+    "AI platform India",
+    "AI startup India",
+    "India AI SaaS",
+    "AI integration platform India",
   ],
   openGraph: {
     title: "Athene AI — Where Your Data Becomes Your Intelligence",
@@ -73,7 +78,8 @@ export const metadata: Metadata = {
         alt: "Athene AI — Enterprise Intelligence Layer connecting your data stack",
       },
     ],
-    locale: "en_US",
+    locale: "en_IN",
+    alternateLocale: ["en_US", "en_GB"],
     type: "website",
   },
   twitter: {
@@ -119,11 +125,23 @@ const structuredData = {
       },
       description:
         "Athene AI is an enterprise intelligence platform that connects to your existing tools via OAuth and deploys supervised AI agents that respect your permissions, data residency, and org chart.",
+      foundingLocation: {
+        "@type": "Place",
+        addressCountry: "IN",
+        name: "India",
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "IN",
+      },
+      areaServed: ["IN", "US", "GB", "SG", "AE", "AU"],
       sameAs: ["https://www.linkedin.com/company/atheneai"],
       contactPoint: {
         "@type": "ContactPoint",
         contactType: "sales",
         url: "https://calendly.com/saksham-atheneai/30min",
+        areaServed: "Worldwide",
+        availableLanguage: "English",
       },
     },
     {
@@ -166,6 +184,65 @@ const structuredData = {
         target: "https://calendly.com/saksham-atheneai/30min",
         name: "Book a Demo",
       },
+    },
+    {
+      "@type": "HowTo",
+      name: "How to deploy Athene AI in your organization",
+      description: "Go from sign-up to AI-powered insight across your entire data stack in six steps — no migration required.",
+      totalTime: "PT30M",
+      step: [
+        { "@type": "HowToStep", name: "Sign up", text: "Email or SSO sign-up. No credit card required for the trial." },
+        { "@type": "HowToStep", name: "Create your org", text: "Name your organization and choose your data residency region." },
+        { "@type": "HowToStep", name: "Invite your users", text: "Bulk-invite by email or sync directly from Okta or Google Workspace." },
+        { "@type": "HowToStep", name: "Create teams", text: "Mirror your org chart — Sales, Finance, Engineering, BI, and more." },
+        { "@type": "HowToStep", name: "Assign users to teams", text: "Each team gets scoped access. Super-users get custom permission scopes." },
+        { "@type": "HowToStep", name: "Automate and get insight", text: "Ask anything in natural language. Athene routes, answers, and executes work across your connected tools." },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Does Athene AI move or copy my data?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "No. Athene stores only metadata and a knowledge graph of relationships between entities. Your records stay in Salesforce, Snowflake, Drive, or wherever they already live. Nothing is copied, cached, or used to train any model.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How does Athene AI handle permissions?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Every query inherits the requesting user's exact role and file-level access from your IdP — Okta, Google Workspace, or Microsoft Entra. Athene cannot surface data the user cannot already see.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Is Athene AI SOC 2 Type II certified?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. Athene AI is SOC 2 Type II certified. We maintain a full immutable audit trail for every AI query and action, streamable to your SIEM.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Which tools does Athene AI integrate with?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Athene AI connects to 30+ enterprise tools including Salesforce, Snowflake, Slack, Notion, Jira, Linear, GitHub, HubSpot, Google Drive, Gmail, Zendesk, and SharePoint — all via OAuth in minutes.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can I bring my own AI model (BYOK)?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. Athene supports Bring Your Own Key (BYOK) for any model on any plan, including Anthropic Claude, OpenAI GPT, Google Gemini, and self-hosted models.",
+          },
+        },
+      ],
     },
   ],
 };

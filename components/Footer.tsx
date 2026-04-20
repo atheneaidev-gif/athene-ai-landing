@@ -19,7 +19,7 @@ export function Footer() {
       <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
         <Logo />
         <span style={{ fontSize: 13, color: ATHENE.inkFaint, fontWeight: 500 }}>
-          © 2026 Athene AI, Inc.
+          © 2026 Athene AI .
         </span>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 28, fontSize: 13.5, fontWeight: 500, color: ATHENE.inkMuted }}>

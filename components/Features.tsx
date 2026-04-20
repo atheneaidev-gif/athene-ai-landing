@@ -78,7 +78,7 @@ export default function Features() {
             ['Admin controls',      'Quota by team, rate limits by connector, red-team mode, kill switch — all from one console.'],
             ['SDK & webhooks',      "TS/Python SDK. Build bespoke agents that inherit the platform's RBAC and audit."],
             ['On-prem option',      'Deploy the control plane in your VPC. Models via your AWS Bedrock / Azure OpenAI account.'],
-            ['Residency',           'US, EU, APAC regions. Customer-managed keys. BYO KMS.'],
+            ['Residency',           'India, US, EU, APAC regions. Customer-managed keys. BYO KMS.'],
             ['SSO / SCIM',          'Okta, Entra, Google, Ping. SCIM 2.0 for auto-provisioning and de-provisioning.'],
           ].map(([t, b], i) => (
             <AnimatedSection key={t} className="anim-fade-up" delay={i * 0.06}>

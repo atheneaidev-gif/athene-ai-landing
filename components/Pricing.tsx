@@ -286,7 +286,7 @@ function CompareMatrix() {
     ['Audit log',                      'Basic',           'Extended',            'Extended + SIEM export'],
     ['section', 'Model & data'],
     ['BYOK (bring your own key)',      true,              true,                  true],
-    ['Data residency',                 'US',              'US / EU',             'US / EU / APAC'],
+    ['Data residency',                 'India / US',      'India / US / EU',     'India / US / EU / APAC'],
     ['section', 'Support'],
     ['Support',                        'Community',       'Priority email',      'Named CSM + SLA'],
   ];

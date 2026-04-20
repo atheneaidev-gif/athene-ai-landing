@@ -38,7 +38,7 @@ export function Nav() {
     { k: 'features', label: 'Features', href: '/features' },
     { k: 'pricing',  label: 'Pricing',  href: '/pricing'  },
     { k: 'team',     label: 'Team',     href: '/team'     },
-    { k: 'docs',     label: 'Docs',     href: '#'         },
+    
   ];
 
   const getActive = () => {

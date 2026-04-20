@@ -2,7 +2,10 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import {
+  siSnowflake, siNotion, siJira, siLinear,
+  siGithub, siHubspot, siGoogledrive, siGmail, siZendesk,
+} from 'simple-icons';
 import { ATHENE } from '@/lib/theme';
 import { Shell, Nav, Footer, Pill, BtnPrimary, BtnGhost, Card, AnimatedSection } from '@/components/ui';
 
@@ -155,37 +158,27 @@ export default function Landing() {
         </AnimatedSection>
       </section>
 
-      {/* TEAM STRIP */}
-      <section style={{ padding: '40px 56px 96px', maxWidth: 1440, margin: '0 auto' }}>
-        <AnimatedSection>
-          <div style={{ textAlign: 'center', marginBottom: 40 }}>
-            <Pill tone="navy">The team</Pill>
-            <h2 style={{
-              fontSize: 40, letterSpacing: -1.2, fontWeight: 600, margin: '16px 0 10px',
-              fontFamily: `"Fraunces", Georgia, serif`, color: ATHENE.ink,
-            }}>Built by people who've shipped enterprise AI.</h2>
-          </div>
-        </AnimatedSection>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20, maxWidth: 900, margin: '0 auto' }}>
-          <AnimatedSection className="anim-fade-up" delay={0}>
-            <LandingPersonCard
-              name="Saksham Sharma" degree="B.Tech CSE @ Christ University" role="Co-Founder"
-              photo="/saksham.png"
-              bullets={['Co-Founded @Onestop Dev Pvt Ltd', 'Former CTO of Sarie — tech infra & Ordrio collaborations', 'Engineered the foundation @Bolds AI SaaS', 'Architected DeptDocs, AI workflow tool for ADSE, Christ University']}
-            />
-          </AnimatedSection>
-          <AnimatedSection className="anim-fade-up" delay={0.12}>
-            <LandingPersonCard
-              name="Mudassir N" degree="B.Tech AIML @ Christ University" role="Co-Founder"
-              photo="/alam.png"
-              bullets={['Co-Founded Onestop Dev Pvt Ltd', '2x Intern @Intel — ML & Computer Vision', 'Published at SICS 2026 with a GNN framework', 'Quant ML Intern with Melih Abdulhayoglu']}
-            />
-          </AnimatedSection>
-        </div>
-        <div style={{ textAlign: 'center', marginTop: 24 }}>
-          <Link href="/team" className="btn-hover" style={{ fontSize: 14, fontWeight: 600, color: ATHENE.skyDeep, textDecoration: 'none' }}>Meet the full team →</Link>
-        </div>
-      </section>
+       {/* HOW IT WORKS */}
+             <section style={{ padding: '0 56px 96px' }}>
+               <AnimatedSection>
+                 <div style={{ maxWidth: 720, marginBottom: 40 }}>
+                   <Pill tone="sky">How it works</Pill>
+                   <h2 style={{
+                     fontSize: 40, lineHeight: 1.05, letterSpacing: -1.2, fontWeight: 600,
+                     margin: '18px 0 14px', color: ATHENE.ink,
+                     fontFamily: `"Fraunces", Georgia, serif`,
+                   }}>From sign-up to insight — in six steps.</h2>
+                   <p style={{ fontSize: 16, lineHeight: 1.55, color: ATHENE.inkMuted, fontWeight: 450 }}>
+                     No migration. No data warehouse. Just OAuth your existing tools, set up your org, and let
+                     Athene route every question to the right sub-agent.
+                   </p>
+                 </div>
+               </AnimatedSection>
+               <AnimatedSection className="anim-fade-up" delay={0.1}>
+                 <ProcessSteps />
+               </AnimatedSection>
+             </section>             
+      
 
       {/* CTA */}
       <section style={{ padding: '0 56px 120px', maxWidth: 1440, margin: '0 auto' }}>
@@ -229,13 +222,7 @@ export default function Landing() {
                     fontSize: 14, fontWeight: 700, cursor: 'pointer',
                     textDecoration: 'none', display: 'inline-block',
                   }}>Book a demo →</Link>
-                  <Link href="/privacy" className="btn-hover" style={{
-                    background: 'transparent', color: '#fff',
-                    border: '1px solid rgba(255,255,255,0.25)',
-                    padding: '14px 22px', borderRadius: 12,
-                    fontSize: 14, fontWeight: 700, cursor: 'pointer',
-                    textDecoration: 'none', display: 'inline-block',
-                  }}>Read the whitepaper</Link>
+                 
                 </div>
               </AnimatedSection>
             </div>
@@ -432,14 +419,54 @@ function MiniBtn({ children }: { children: React.ReactNode }) {
   );
 }
 
+function SiIcon({ icon, size = 22 }: { icon: { path: string; hex: string }; size?: number }) {
+  return (
+    <svg viewBox="0 0 24 24" width={size} height={size} fill={`#${icon.hex}`}>
+      <path d={icon.path} />
+    </svg>
+  );
+}
+
+function SlackIcon({ size = 22 }: { size?: number }) {
+  return (
+    <svg viewBox="0 0 24 24" width={size} height={size} fill="none">
+      <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z" fill="#4A154B"/>
+    </svg>
+  );
+}
+
+function SalesforceIcon({ size = 22 }: { size?: number }) {
+  return (
+    <svg viewBox="0 0 64 42" width={size} height={Math.round(size * 42 / 64)} fill="#00A1E0">
+      <path d="M26.4 4.2C29.1 1.6 32.7 0 36.7 0c5.8 0 10.9 3.2 13.7 8C52.6 7 54.8 6.4 57 6.4 61 6.4 64 9.4 64 13.4c0 1.4-.4 2.7-1.1 3.8 1.6 1.3 2.6 3.3 2.6 5.5 0 3.9-3.2 7.1-7.1 7.1-.5 0-1 0-1.5-.1C55.5 33 50.5 36 44.8 36c-1.4 0-2.8-.2-4.1-.6C38.8 38.4 36 40 32.9 40c-2.7 0-5.2-1-7-2.7C24.6 38.4 22.8 39 20.8 39c-3 0-5.7-1.4-7.4-3.7-1.1.4-2.3.6-3.6.6C4.4 35.9 0 31.5 0 26.1c0-3.2 1.5-6.1 3.8-8-0.1-.6-.2-1.2-.2-1.9C3.6 7.6 9.2 2 16.1 2c3.9 0 7.4 1.7 9.8 4.4C25.5 5.7 25.9 4.9 26.4 4.2z"/>
+    </svg>
+  );
+}
+
+function SharePointIcon({ size = 22 }: { size?: number }) {
+  return (
+    <svg viewBox="0 0 24 24" width={size} height={size} fill="none">
+      <rect x="0" y="3" width="15" height="15" rx="2" fill="#0078D4"/>
+      <rect x="4" y="7" width="15" height="13" rx="2" fill="#1A9FE0"/>
+      <rect x="9" y="11" width="15" height="10" rx="2" fill="#50D9FF"/>
+    </svg>
+  );
+}
+
 function IntegrationsStrip() {
-  const tools = [
-    { n: 'Salesforce', c: '#0284c7' }, { n: 'Snowflake', c: '#0ea5e9' },
-    { n: 'Slack',      c: '#7c3aed' }, { n: 'Notion',    c: '#111'    },
-    { n: 'Jira',       c: '#1d4ed8' }, { n: 'Linear',    c: '#6366f1' },
-    { n: 'GitHub',     c: '#111'    }, { n: 'HubSpot',   c: '#ea580c' },
-    { n: 'Drive',      c: '#eab308' }, { n: 'Gmail',     c: '#ef4444' },
-    { n: 'Zendesk',    c: '#059669' }, { n: 'SharePoint',c: '#0369a1' },
+  const tools: { n: string; icon: React.ReactNode }[] = [
+    { n: 'Salesforce', icon: <SalesforceIcon /> },
+    { n: 'Snowflake',  icon: <SiIcon icon={siSnowflake} /> },
+    { n: 'Slack',      icon: <SlackIcon /> },
+    { n: 'Notion',     icon: <SiIcon icon={siNotion} /> },
+    { n: 'Jira',       icon: <SiIcon icon={siJira} /> },
+    { n: 'Linear',     icon: <SiIcon icon={siLinear} /> },
+    { n: 'GitHub',     icon: <SiIcon icon={siGithub} /> },
+    { n: 'HubSpot',    icon: <SiIcon icon={siHubspot} /> },
+    { n: 'Drive',      icon: <SiIcon icon={siGoogledrive} /> },
+    { n: 'Gmail',      icon: <SiIcon icon={siGmail} /> },
+    { n: 'Zendesk',    icon: <SiIcon icon={siZendesk} /> },
+    { n: 'SharePoint', icon: <SharePointIcon /> },
   ];
   return (
     <section style={{
@@ -454,14 +481,14 @@ function IntegrationsStrip() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: 12 }}>
         {tools.map((t, i) => (
           <div key={t.n} className="integration-badge" style={{
-            display: 'flex', alignItems: 'center', gap: 8, justifyContent: 'center',
-            padding: '10px 8px', borderRadius: 10,
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, justifyContent: 'center',
+            padding: '12px 8px', borderRadius: 10,
             background: '#fff', border: `1px solid ${ATHENE.hair}`,
-            fontSize: 12.5, fontWeight: 700, color: ATHENE.navy,
+            fontSize: 11, fontWeight: 700, color: ATHENE.navy,
             cursor: 'default',
             animationDelay: `${i * 0.05}s`,
           }}>
-            <span style={{ width: 8, height: 8, borderRadius: 2, background: t.c }} />
+            {t.icon}
             {t.n}
           </div>
         ))}
@@ -524,5 +551,46 @@ function VizRBAC() {
       ))}
       <text x="180" y="128" textAnchor="end" fontSize="9" fontWeight="600" fill={ATHENE.inkFaint}>scope inherited from IdP</text>
     </svg>
+  );
+}
+
+
+function ProcessSteps() {
+  const steps = [
+    { n: '01', t: 'Sign up',               d: 'Email + SSO. No credit card for the trial.', icon: '→' },
+    { n: '02', t: 'Create your org',       d: 'Name it, pick your data residency region, done.', icon: '◎' },
+    { n: '03', t: 'Invite your users',     d: 'Bulk-invite by email or sync from Okta / Google Workspace.', icon: '☺' },
+    { n: '04', t: 'Create teams',          d: 'Mirror your org chart — Sales, Finance, Eng, BI, etc.', icon: '▦' },
+    { n: '05', t: 'Assign users to teams', d: 'Each team gets scoped access. Super-users get custom scopes.', icon: '✓' },
+    { n: '06', t: 'Automate & get insight',d: 'Ask anything. Athene routes, answers, and executes work.', icon: '✦' },
+  ];
+  return (
+    <div style={{ position: 'relative' }}>
+      <div style={{
+        position: 'absolute', top: 44, left: '8%', right: '8%', height: 2,
+        background: `repeating-linear-gradient(90deg, ${ATHENE.sky} 0 6px, transparent 6px 10px)`,
+        opacity: 0.5,
+      }} />
+      <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 12 }}>
+        {steps.map((s, i) => (
+          <div key={s.n} style={{ textAlign: 'center' }}>
+            <div className="card-hover" style={{
+              width: 56, height: 56, borderRadius: 16, margin: '0 auto 16px',
+              background: i === 5 ? ATHENE.navy : '#fff',
+              color:      i === 5 ? '#fff'      : ATHENE.navy,
+              border: `1px solid ${i === 5 ? ATHENE.navy : ATHENE.hair}`,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: 22, fontWeight: 700,
+              boxShadow: '0 8px 22px -12px rgba(23,37,84,0.2)', cursor: 'default',
+            }}>
+              {s.icon}
+            </div>
+            <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 1.4, color: ATHENE.inkFaint, marginBottom: 6 }}>{s.n}</div>
+            <div style={{ fontSize: 15, fontWeight: 700, color: ATHENE.ink, marginBottom: 6, fontFamily: `"Fraunces", Georgia, serif`, letterSpacing: -0.2 }}>{s.t}</div>
+            <div style={{ fontSize: 12.5, color: ATHENE.inkMuted, lineHeight: 1.45, fontWeight: 450, maxWidth: 160, margin: '0 auto' }}>{s.d}</div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
