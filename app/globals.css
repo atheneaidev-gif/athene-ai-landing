@@ -1,40 +1,167 @@
-@import "tailwindcss";
+html, body { margin: 0; padding: 0; }
+* { box-sizing: border-box; }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ── Keyframe animations ── */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.6; transform: scale(1.4); }
 }
 
-/* Integration carousel marquee */
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-.animate-marquee {
-  animation: marquee 35s linear infinite;
+/* ── Hero entrance ── */
+
+.hero-entrance {
+  animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero-entrance-d1 { animation-delay: 0.1s; }
+.hero-entrance-d2 { animation-delay: 0.25s; }
+.hero-entrance-d3 { animation-delay: 0.4s; }
+.hero-entrance-d4 { animation-delay: 0.55s; }
+.hero-entrance-d5 { animation-delay: 0.7s; }
+
+.hero-product-peek {
+  animation: slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
 
-.animate-marquee:hover {
-  animation-play-state: paused;
+/* ── Scroll-triggered animation utilities ── */
+
+.anim-fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
+.anim-fade-up.in-view { opacity: 1; transform: translateY(0); }
+
+.anim-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.anim-scale.in-view { opacity: 1; transform: scale(1); }
+
+.anim-slide-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.anim-slide-left.in-view { opacity: 1; transform: translateX(0); }
+
+.anim-slide-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.anim-slide-right.in-view { opacity: 1; transform: translateX(0); }
+
+/* ── Floating ── */
+
+.float-gentle { animation: float 4s ease-in-out infinite; }
+
+/* ── Status dot pulse ── */
+
+.pulse-dot { animation: pulseDot 2.5s ease-in-out infinite; }
+
+/* ── Gradient text ── */
+
+.gradient-text-animated {
+  background-size: 200% auto;
+  animation: gradientShift 4s ease infinite;
+}
+
+/* ── Hover effects ── */
+
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px -20px rgba(23, 37, 84, 0.18),
+              0 2px 8px rgba(255, 255, 255, 0.9) inset !important;
+}
+
+.btn-hover {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.25s ease;
+}
+.btn-hover:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+.btn-hover:active { transform: translateY(0) scale(0.98); }
+
+.nav-link-hover {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.nav-link-hover:hover {
+  color: #172554 !important;
+  transform: translateY(-1px);
+}
+
+.integration-badge {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.integration-badge:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 20px -8px rgba(23, 37, 84, 0.15);
+  border-color: rgba(14, 165, 233, 0.3) !important;
+}
+
+/* ── Tool chip hover ── */
+
+.tool-chip { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.tool-chip:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px -4px rgba(23, 37, 84, 0.12);
+}
+
+/* ── Mini button hover ── */
+
+.mini-btn { transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease; }
+.mini-btn:hover {
+  background: #f0f9ff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px -4px rgba(14, 165, 233, 0.25);
+}
+
+/* ── CTA gradient animation ── */
+
+.cta-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+}
+
+/* ── Page entrance ── */
+
+.page-enter { animation: fadeInUp 0.6s ease-out both; }
+
+/* ── Knowledge graph node hover ── */
+
+.kg-node { transition: transform 0.3s ease; transform-origin: center; }
+.kg-node:hover { transform: scale(1.15); }
