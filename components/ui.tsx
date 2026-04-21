@@ -77,15 +77,16 @@ export function BtnGhost({ children, style = {}, href }: { children: React.React
   return <button className="btn-hover" style={btnStyle}>{children}</button>;
 }
 
-export function Card({ children, style = {}, accent = false, tight = false, hover = true }: {
+export function Card({ children, style = {}, className = '', accent = false, tight = false, hover = true }: {
   children: React.ReactNode;
   style?: React.CSSProperties;
+  className?: string;
   accent?: boolean;
   tight?: boolean;
   hover?: boolean;
 }) {
   return (
-    <div className={hover ? 'card-hover' : ''} style={{
+    <div className={[hover ? 'card-hover' : '', className].filter(Boolean).join(' ')} style={{
       background: accent ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0.7)',
       backdropFilter: 'blur(12px)',
       WebkitBackdropFilter: 'blur(12px)',

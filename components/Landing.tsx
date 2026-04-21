@@ -15,19 +15,19 @@ export default function Landing() {
       <Nav />
 
       {/* HERO */}
-      <section style={{ padding: '96px 56px 72px', position: 'relative' }}>
+      <section className="r-section" style={{ padding: '96px 56px 72px', position: 'relative' }}>
         <div style={{
           position: 'absolute', inset: '-60px -20% 20% -20%', pointerEvents: 'none',
           background: 'radial-gradient(60% 50% at 30% 30%, rgba(14,165,233,0.18), transparent 70%), radial-gradient(40% 40% at 85% 40%, rgba(251,113,133,0.18), transparent 70%)',
           filter: 'blur(40px)',
         }} />
 
-        <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 56, alignItems: 'center', maxWidth: 1328, margin: '0 auto' }}>
+        <div className="r-grid-hero" style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 56, alignItems: 'center', maxWidth: 1328, margin: '0 auto' }}>
           <div>
             <div className="hero-entrance hero-entrance-d1" style={{ marginBottom: 24 }}>
               <Pill tone="sky">Now in private beta · SOC 2 Type II</Pill>
             </div>
-            <h1 className="hero-entrance hero-entrance-d2" style={{
+            <h1 className="hero-entrance hero-entrance-d2 r-h1" style={{
               fontSize: 76, lineHeight: 0.98, letterSpacing: -2.4,
               fontWeight: 600, margin: 0, color: ATHENE.ink,
               fontFamily: `"Fraunces", "Tiempos", Georgia, serif`,
@@ -84,7 +84,7 @@ export default function Landing() {
       </AnimatedSection>
 
       {/* PILLARS */}
-      <section style={{ padding: '96px 56px', maxWidth: 1440, margin: '0 auto' }}>
+      <section className="r-section" style={{ padding: '96px 56px', maxWidth: 1440, margin: '0 auto' }}>
         <AnimatedSection>
           <div style={{ maxWidth: 720, marginBottom: 56 }}>
             <Pill tone="navy">The platform</Pill>
@@ -102,7 +102,7 @@ export default function Landing() {
           </div>
         </AnimatedSection>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+        <div className="r-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
           <AnimatedSection className="anim-fade-up" delay={0}>
             <PillarCard num="01" title="Zero-copy integration" body="Connect via OAuth to Salesforce, Snowflake, Drive, Slack, Jira, and 30+ more. Nothing is copied, cached, or trained on." viz={<VizZeroCopy />} />
           </AnimatedSection>
@@ -122,10 +122,10 @@ export default function Landing() {
       </section>
 
       {/* KNOWLEDGE GRAPH SECTION */}
-      <section style={{ padding: '40px 56px 96px', maxWidth: 1440, margin: '0 auto' }}>
+      <section className="r-section" style={{ padding: '40px 56px 96px', maxWidth: 1440, margin: '0 auto' }}>
         <AnimatedSection className="anim-scale">
-          <Card hover={false} style={{ padding: 56 }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56, alignItems: 'center' }}>
+          <Card hover={false} className="r-card-pad" style={{ padding: 56 }}>
+            <div className="r-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56, alignItems: 'center' }}>
               <AnimatedSection className="anim-slide-left" delay={0.15}>
                 <div>
                   <Pill tone="rose">What we store</Pill>
@@ -159,7 +159,7 @@ export default function Landing() {
       </section>
 
        {/* HOW IT WORKS */}
-             <section style={{ padding: '0 56px 96px' }}>
+             <section className="r-section" style={{ padding: '0 56px 96px' }}>
                <AnimatedSection>
                  <div style={{ maxWidth: 720, marginBottom: 40 }}>
                    <Pill tone="sky">How it works</Pill>
@@ -181,7 +181,7 @@ export default function Landing() {
       
 
       {/* CTA */}
-      <section style={{ padding: '0 56px 120px', maxWidth: 1440, margin: '0 auto' }}>
+      <section className="r-section" style={{ padding: '0 56px 120px', maxWidth: 1440, margin: '0 auto' }}>
         <AnimatedSection className="anim-scale">
           <div className="cta-gradient" style={{
             position: 'relative', overflow: 'hidden',
@@ -469,7 +469,7 @@ function IntegrationsStrip() {
     { n: 'SharePoint', icon: <SharePointIcon /> },
   ];
   return (
-    <section style={{
+    <section className="r-section" style={{
       padding: '32px 56px',
       borderTop: `1px solid ${ATHENE.hair}`, borderBottom: `1px solid ${ATHENE.hair}`,
       background: 'rgba(255,255,255,0.35)', backdropFilter: 'blur(8px)',
@@ -478,7 +478,7 @@ function IntegrationsStrip() {
         fontSize: 11, fontWeight: 700, letterSpacing: 1.8, textAlign: 'center',
         color: ATHENE.inkFaint, textTransform: 'uppercase', marginBottom: 20,
       }}>Connects to 30+ systems · OAuth in minutes · Read your permissions, not your data</div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: 12 }}>
+      <div className="r-grid-12" style={{ display: 'grid', gridTemplateColumns: 'repeat(12, 1fr)', gap: 12 }}>
         {tools.map((t, i) => (
           <div key={t.n} className="integration-badge" style={{
             display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, justifyContent: 'center',
@@ -566,12 +566,12 @@ function ProcessSteps() {
   ];
   return (
     <div style={{ position: 'relative' }}>
-      <div style={{
+      <div className="r-step-line" style={{
         position: 'absolute', top: 44, left: '8%', right: '8%', height: 2,
         background: `repeating-linear-gradient(90deg, ${ATHENE.sky} 0 6px, transparent 6px 10px)`,
         opacity: 0.5,
       }} />
-      <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 12 }}>
+      <div className="r-grid-6" style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 12 }}>
         {steps.map((s, i) => (
           <div key={s.n} style={{ textAlign: 'center' }}>
             <div className="card-hover" style={{

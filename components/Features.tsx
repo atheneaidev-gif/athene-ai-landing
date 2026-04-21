@@ -9,7 +9,7 @@ export default function Features() {
     <Shell>
       <Nav />
 
-      <section style={{ padding: '96px 56px 48px', position: 'relative' }}>
+      <section className="r-section" style={{ padding: '96px 56px 48px', position: 'relative' }}>
         <div style={{
           position: 'absolute', inset: '-40px -10% 40% -10%', pointerEvents: 'none',
           background: 'radial-gradient(50% 50% at 70% 30%, rgba(14,165,233,0.14), transparent 70%)',
@@ -17,7 +17,7 @@ export default function Features() {
         }} />
         <div className="hero-entrance hero-entrance-d1" style={{ position: 'relative', maxWidth: 780 }}>
           <Pill tone="sky">Platform</Pill>
-          <h1 style={{
+          <h1 className="r-h1" style={{
             fontSize: 64, lineHeight: 1, letterSpacing: -2.2,
             fontWeight: 600, margin: '20px 0 20px', color: ATHENE.ink,
             fontFamily: `"Fraunces", Georgia, serif`,
@@ -58,7 +58,7 @@ export default function Features() {
       </AnimatedSection>
 
       {/* Capabilities matrix */}
-      <section style={{ padding: '32px 56px 96px' }}>
+      <section className="r-section" style={{ padding: '32px 56px 96px' }}>
         <AnimatedSection>
           <div style={{ maxWidth: 680, marginBottom: 40 }}>
             <Pill tone="navy">Capabilities</Pill>
@@ -69,7 +69,7 @@ export default function Features() {
             }}>The rest of the platform.</h2>
           </div>
         </AnimatedSection>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+        <div className="r-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
           {[
             ['Supervisor model',    'A routing agent that decomposes queries, picks sub-agents, and verifies outputs.'],
             ['Action framework',    'Typed actions for writes — draft email, file ticket, schedule event. Every action reviewable.'],
@@ -101,8 +101,8 @@ function FeatureRow({ num, eyebrow, title, body, bullets, viz, reverse = false }
   bullets: string[]; viz: React.ReactNode; reverse?: boolean;
 }) {
   return (
-    <section style={{ padding: '64px 56px' }}>
-      <div style={{
+    <section className="r-section" style={{ padding: '64px 56px' }}>
+      <div className="r-grid-2" style={{
         display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 72, alignItems: 'center',
         direction: reverse ? 'rtl' : 'ltr',
       }}>

@@ -10,7 +10,7 @@ export default function Pricing() {
     <Shell>
       <Nav />
 
-      <section style={{ padding: '96px 56px 48px', textAlign: 'center', position: 'relative' }}>
+      <section className="r-section" style={{ padding: '96px 56px 48px', textAlign: 'center', position: 'relative' }}>
         <div style={{
           position: 'absolute', inset: '-40px -10% 40% -10%', pointerEvents: 'none',
           background: 'radial-gradient(40% 60% at 50% 30%, rgba(14,165,233,0.12), transparent 70%), radial-gradient(40% 60% at 50% 70%, rgba(251,113,133,0.1), transparent 70%)',
@@ -18,7 +18,7 @@ export default function Pricing() {
         }} />
         <div className="hero-entrance hero-entrance-d1" style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Pill tone="sky">Plans — coming soon</Pill>
-          <h1 style={{
+          <h1 className="r-h1" style={{
             fontSize: 64, lineHeight: 1, letterSpacing: -2.2,
             fontWeight: 600, margin: '20px 0 18px', color: ATHENE.ink,
             fontFamily: `"Fraunces", Georgia, serif`, maxWidth: 780,
@@ -45,8 +45,8 @@ export default function Pricing() {
       </section>
 
       {/* THREE TIERS */}
-      <section style={{ padding: '32px 56px 64px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, maxWidth: 1240, margin: '0 auto' }}>
+      <section className="r-section" style={{ padding: '32px 56px 64px' }}>
+        <div className="r-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, maxWidth: 1240, margin: '0 auto' }}>
           {/* Personal */}
           <AnimatedSection className="anim-fade-up" delay={0}>
             <Card style={{ padding: 32 }}>
@@ -159,11 +159,11 @@ export default function Pricing() {
       </section>
 
       {/* Custom Access Management callout */}
-      <section style={{ padding: '32px 56px 72px' }}>
+      <section className="r-section" style={{ padding: '32px 56px 72px' }}>
         <AnimatedSection className="anim-scale">
           <div style={{ maxWidth: 1100, margin: '0 auto' }}>
             <Card hover={false} style={{ padding: 48 }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.1fr', gap: 48, alignItems: 'center' }}>
+              <div className="r-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1.1fr', gap: 48, alignItems: 'center' }}>
                 <AnimatedSection className="anim-slide-left" delay={0.1}>
                   <div>
                     <Pill tone="rose">Enterprise-only</Pill>
@@ -212,8 +212,8 @@ export default function Pricing() {
       </section>
 
       {/* FAQ */}
-      <section style={{ padding: '32px 56px 96px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: 56, maxWidth: 1100, margin: '0 auto' }}>
+      <section className="r-section" style={{ padding: '32px 56px 96px' }}>
+        <div className="r-grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: 56, maxWidth: 1100, margin: '0 auto' }}>
           <AnimatedSection className="anim-slide-left">
             <div>
               <Pill tone="rose">FAQ</Pill>

@@ -13,17 +13,17 @@ export default function Team() {
 
 
       {/* MEET THE TEAM */}
-      <section style={{ padding: '24px 56px 96px' }}>
+      <section className="r-section" style={{ padding: '24px 56px 96px' }}>
         <AnimatedSection>
           <div style={{ textAlign: 'center', marginBottom: 36 }}>
             <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: 2, color: ATHENE.skyDeep, marginBottom: 8 }}>TEAM</div>
-            <h2 style={{
+            <h2 className="r-h2" style={{
               fontSize: 44, letterSpacing: -1.4, fontWeight: 600, margin: 0,
               fontFamily: `"Fraunces", Georgia, serif`, color: ATHENE.ink,
             }}>Meet the team</h2>
           </div>
         </AnimatedSection>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, maxWidth: 1200, margin: '0 auto' }}>
+        <div className="r-grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, maxWidth: 1200, margin: '0 auto' }}>
           <AnimatedSection className="anim-fade-up" delay={0}>
             <PersonCard
               name="Saksham Sharma" role="Co-founder"
@@ -54,18 +54,18 @@ export default function Team() {
      
 
       {/* Values */}
-      <section style={{ padding: '0 56px 96px' }}>
+      <section className="r-section" style={{ padding: '0 56px 96px' }}>
         <AnimatedSection>
           <div style={{ maxWidth: 720, marginBottom: 40 }}>
             <Pill tone="navy">What we believe</Pill>
-            <h2 style={{
+            <h2 className="r-h2" style={{
               fontSize: 40, lineHeight: 1.05, letterSpacing: -1.2, fontWeight: 600,
               margin: '18px 0 14px', color: ATHENE.ink,
               fontFamily: `"Fraunces", Georgia, serif`,
             }}>Four commitments that pre-date our first line of code.</h2>
           </div>
         </AnimatedSection>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
+        <div className="r-grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16 }}>
           {[
             ['Your data is yours.',       'We store metadata and a knowledge graph — never your records. Nothing trains any model.'],
             ['Don\'t break permissions.', 'If your IdP says no, our agents say no. Every time.'],
@@ -84,7 +84,7 @@ export default function Team() {
       </section>
 
       {/* Contact CTA */}
-      <section style={{ padding: '0 56px 120px' }}>
+      <section className="r-section" style={{ padding: '0 56px 120px' }}>
         <AnimatedSection className="anim-scale">
           <div className="cta-gradient" style={{
             borderRadius: 28, padding: '56px 64px', position: 'relative', overflow: 'hidden',
@@ -95,7 +95,7 @@ export default function Team() {
               position: 'absolute', inset: 0, pointerEvents: 'none',
               background: 'radial-gradient(50% 100% at 80% 50%, rgba(14,165,233,0.35), transparent 70%)',
             }} />
-            <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: 48, alignItems: 'center' }}>
+            <div className="r-cta-grid" style={{ position: 'relative', display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: 48, alignItems: 'center' }}>
               <div>
                 <h3 style={{ fontSize: 36, letterSpacing: -1, fontWeight: 600, margin: '0 0 12px', fontFamily: `"Fraunces", Georgia, serif` }}>Want to talk?</h3>
                 <p style={{ fontSize: 15, lineHeight: 1.55, color: 'rgba(255,255,255,0.75)', maxWidth: 440, margin: 0 }}>

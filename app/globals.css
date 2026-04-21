@@ -165,3 +165,63 @@ html, body { margin: 0; padding: 0; }
 
 .kg-node { transition: transform 0.3s ease; transform-origin: center; }
 .kg-node:hover { transform: scale(1.15); }
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE — breakpoint overrides
+   !important needed to override React inline styles
+══════════════════════════════════════════════════ */
+
+/* Tablet (≤ 1024px) */
+@media (max-width: 1024px) {
+  .r-grid-hero      { grid-template-columns: 1fr !important; }
+  .hero-product-peek { display: none !important; }
+  .r-h1             { font-size: 52px !important; letter-spacing: -1.8px !important; }
+  .r-nav            { padding-left: 28px !important; padding-right: 28px !important; }
+}
+
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+  /* Section padding */
+  .r-section        { padding-left: 20px !important; padding-right: 20px !important; }
+  .r-nav            { padding-left: 20px !important; padding-right: 20px !important; }
+
+  /* Grid collapses */
+  .r-grid-hero      { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .r-grid-2         { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .r-grid-3         { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .r-grid-4         { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+  .r-grid-6         { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
+  .r-grid-12        { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
+  .r-cta-grid       { grid-template-columns: 1fr !important; gap: 24px !important; }
+
+  /* Hero */
+  .hero-product-peek { display: none !important; }
+
+  /* Typography */
+  .r-h1 { font-size: 38px !important; letter-spacing: -1.2px !important; line-height: 1.05 !important; }
+  .r-h2 { font-size: 26px !important; letter-spacing: -0.6px !important; }
+
+  /* CTA gradient box */
+  .cta-gradient { padding: 36px 24px !important; border-radius: 16px !important; }
+
+  /* Card padding */
+  .r-card-pad { padding: 24px !important; }
+
+  /* Step connector line */
+  .r-step-line { display: none !important; }
+
+  /* Nav: show hamburger, hide desktop links/CTA */
+  .nav-links-desktop { display: none !important; }
+  .nav-cta-desktop   { display: none !important; }
+  .nav-hamburger     { display: flex !important; }
+}
+
+/* Small mobile (≤ 480px) */
+@media (max-width: 480px) {
+  .r-section  { padding-left: 16px !important; padding-right: 16px !important; }
+  .r-grid-4   { grid-template-columns: 1fr !important; }
+  .r-grid-6   { grid-template-columns: repeat(2, 1fr) !important; }
+  .r-grid-12  { grid-template-columns: repeat(2, 1fr) !important; }
+  .r-h1       { font-size: 32px !important; }
+  .r-h2       { font-size: 22px !important; }
+}
